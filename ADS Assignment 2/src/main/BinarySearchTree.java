@@ -41,9 +41,11 @@ public class BinarySearchTree {
         if (value == current.value) {
             return true;
         }
-        return value < current.value
-                ? containsNodeRecursive(current.left, value)
-                : containsNodeRecursive(current.right, value);
+        if (value < current.value) {
+            return containsNodeRecursive(current.left, value);
+        } else {
+            return containsNodeRecursive(current.right, value);
+        }
     }
 
     public boolean isElement(int value) {
